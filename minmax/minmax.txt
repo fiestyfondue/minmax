@@ -1,0 +1,52 @@
+#!/bin/bash -x
+
+NUM1=$((RANDOM%900+100))
+NUM2=$((RANDOM%900+100))
+NUM3=$((RANDOM%900+100))
+NUM4=$((RANDOM%900+100))
+NUM5=$((RANDOM%900+100))
+
+MAX=0
+MIN=0
+
+if [ $NUM1 -ge $NUM2 ]
+then
+MAX=$NUM1
+MIN=$NUM2
+else
+MAX=$NUM2
+MIN=$NUM1
+fi
+
+if [ $NUM3 -ge $MAX ]
+then
+MAX=$NUM3
+else
+if [ $MIN -ge $NUM3 ]
+then
+MIN=$NUM3
+fi
+fi
+
+if [ $NUM4 -ge $MAX ]
+then
+MAX=$NUM4
+else
+if [ $MIN -ge $NUM4 ]
+then
+MIN=$NUM4
+fi
+fi
+
+if [ $NUM5 -ge $MAX ]
+then
+MAX=$NUM5
+else
+if [ $MIN -ge $NUM5 ]
+then
+MIN=$NUM5
+fi
+fi
+
+echo $MIN $MAX
+
